@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Release Please Action
-        uses: google-github-actions/release-please-action@v3
+        uses: googleapis/release-please-action@v4
         with:
           target-branch: ${{ github.ref_name }}
           config-file: ${{ github.ref == 'refs/heads/staging' && 'release-please-staging-config.json' || 'release-please-config.json' }}
