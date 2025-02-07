@@ -5,7 +5,7 @@
     "libs/libraryA": {},
     "libs/libraryB": {}
   },
-  "separate-pull-requests": false,
+  "separate-pull-requests": true,
   "label": "autorelease: pending",
   "pull-request-header": ":sparkles: Package is Ready for Release :sparkles:",
   "versioning-strategy": "prerelease",
