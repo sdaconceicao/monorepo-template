@@ -3,18 +3,15 @@
   "packages": {
     "apps/appA": {
       "prerelease": true,
-      "prerelease-type": "rc",
-      "release-as": "development"
+      "prerelease-type": "rc"
     },
     "libs/libraryA": {
       "prerelease": true,
-      "prerelease-type": "rc",
-      "release-as": "development"
+      "prerelease-type": "rc"
     },
     "libs/libraryB": {
       "prerelease": true,
-      "prerelease-type": "rc",
-      "release-as": "development"
+      "prerelease-type": "rc"
     }
   },
   "separate-pull-requests": true,
