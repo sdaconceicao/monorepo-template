@@ -8,6 +8,7 @@
     "libs/libraryB": {}
   },
   "separate-pull-requests": true,
+  "versioning-strategy": "prerelease",
   "label": "autorelease: pending",
   "pull-request-header": ":sparkles: Package is Ready for Release :sparkles:",
   "draft-pull-request": true,
