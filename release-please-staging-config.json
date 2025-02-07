@@ -1,21 +1,9 @@
 {
   "release-type": "node",
   "packages": {
-    "apps/appA": {
-      "prerelease": true,
-      "prerelease-type": "rc",
-      "release-as": "development"
-    },
-    "libs/libraryA": {
-      "prerelease": true,
-      "prerelease-type": "rc",
-      "release-as": "development"
-    },
-    "libs/libraryB": {
-      "prerelease": true,
-      "prerelease-type": "rc",
-      "release-as": "development"
-    }
+    "apps/appA": {},
+    "libs/libraryA": {},
+    "libs/libraryB": {}
   },
   "separate-pull-requests": true,
   "label": "autorelease: pending",
