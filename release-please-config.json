@@ -1,0 +1,34 @@
+{
+  "release-type": "node",
+  "packages": {
+    "apps/appA": {},
+    "libs/libraryA": {},
+    "libs/libraryB": {}
+  },
+  "separate-pull-requests": false,
+  "label": "autorelease: pending",
+  "pull-request-header": ":sparkles: Package is Ready for Release :sparkles:",
+  "versioning-strategy": "prerelease",
+  "prereleaseType": "alpha",
+  "draft-pull-request": true,
+  "branches": {
+    "development": {
+      "release-type": "node",
+      "prerelease": true,
+      "prerelease-id": "rc"
+    },
+    "staging": {
+      "release-type": "node",
+      "prerelease": false
+    }
+  },
+  "changelog-sections": [
+    { "type": "BREAKING CHANGE", "section": "⚠️ BREAKING CHANGES" },
+    { "type": "feat", "section": "Features" },
+    { "type": "fix", "section": "Bug Fixes" },
+    { "type": "bug", "section": "Bug Fixes" },
+    { "type": "docs", "section": "Chores" },
+    { "type": "deps", "section": "Chores" },
+    { "type": "chore", "section": "Chores" }
+  ]
+}
