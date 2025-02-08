@@ -1,5 +1,6 @@
 {
   "release-type": "node",
+  "versioning": "prerelease",
   "prerelease": true,
   "prerelease-type": "rc",
   "packages": {
@@ -8,11 +9,9 @@
     "libs/libraryB": {}
   },
   "separate-pull-requests": true,
-  "versioning-strategy": "prerelease",
   "label": "autorelease: pending",
   "pull-request-header": ":sparkles: Package is Ready for Release :sparkles:",
   "draft-pull-request": true,
-
   "changelog-sections": [
     { "type": "BREAKING CHANGE", "section": "⚠️ BREAKING CHANGES" },
     { "type": "feat", "section": "Features" },
