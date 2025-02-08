@@ -1,7 +1,7 @@
 {
 	"name": "library-a",
 	"description": "Library A",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"private": false,
 	"main": "dist/index.js",
 	"module": "dist/index.esm.js",
