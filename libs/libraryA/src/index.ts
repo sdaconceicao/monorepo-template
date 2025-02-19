@@ -1,1 +1,1 @@
-console.log("Library A publishu")
+console.log("Library A publishu testy")
