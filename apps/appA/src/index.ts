@@ -1,1 +1,1 @@
-console.log("App A issue recreate")
+console.log("App A issue recreate deployu")
