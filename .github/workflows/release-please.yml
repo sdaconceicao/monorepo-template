@@ -59,7 +59,7 @@ jobs:
 
               const [, pkg, version] = titleMatch;
               const body = `## Release Checklist for ${pkg} v${version}
-              
+
               ### Pre-release checks
               - [ ] Code has been reviewed and approved
               - [ ] All tests are passing
@@ -78,6 +78,23 @@ jobs:
               - [ ] Smoke tests passed
               
               Related PR: #${pr.number}`;
+
+              const issueTitle = `Release Checklist: ${pkg} v${version}`;
+
+              // Check for existing issues with the same title
+              const existingIssues = await github.rest.issues.listForRepo({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'open',
+                labels: 'release-checklist'
+              });
+
+              const issueExists = existingIssues.data.some(issue => issue.title === issueTitle);
+
+              if (issueExists) {
+                console.log(`Issue "${issueTitle}" already exists, skipping creation`);
+                continue;
+              }
               
               await github.rest.issues.create({
                 owner: context.repo.owner,
