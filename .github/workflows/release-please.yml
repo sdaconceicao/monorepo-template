@@ -42,7 +42,8 @@ jobs:
 
             let prs;
             try {
-              prs = JSON.parse(prsOutput);
+              // Use JSON.parse with a reviver function to handle control characters
+              prs = JSON.parse(prsOutput.replace(/[\n\r\t]/g, ' '));
             } catch (error) {
               console.error('Failed to parse PR data:', error);
               return;
@@ -50,7 +51,7 @@ jobs:
 
             // Extract version from PR title which is typically in format: "chore(main): release package-name 1.2.3"
             for (const pr of Object.values(prs)) {
-              const titleMatch = pr.title.match(/release ([^\\s]+) (\d+\.\d+\.\d+)/);
+              const titleMatch = pr.title.match(/release ([^\\s]+) ([\d.-]+(?:rc(?:\.\d+)?)?)/);
               if (!titleMatch) {
                 console.log(`Skipping PR: Could not parse package and version from title: ${pr.title}`);
                 continue;
