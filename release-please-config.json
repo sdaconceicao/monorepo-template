@@ -4,8 +4,12 @@
   "prerelease": true,
   "prerelease-type": "rc",
   "packages": {
-    "apps/appA": {},
-    "libs/libraryA": {},
+    "apps/appA": {
+      "pull-request-title-pattern": "chore${scope}: deploy ${component} ${version}"
+    },
+    "libs/libraryA": {
+      "pull-request-title-pattern": "chore${scope}: publish ${component} ${version}"
+    },
     "libs/libraryB": {}
   },
   "separate-pull-requests": true,

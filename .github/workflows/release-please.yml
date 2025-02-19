@@ -95,7 +95,8 @@ jobs:
                 console.log(`Issue "${issueTitle}" already exists, skipping creation`);
                 continue;
               }
-              
+              console.log(`Creating Issue "${issueTitle}"`);
+
               await github.rest.issues.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
