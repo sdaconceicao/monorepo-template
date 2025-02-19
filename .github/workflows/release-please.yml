@@ -10,10 +10,79 @@ jobs:
   release-please:
     name: Release Please
     runs-on: ubuntu-latest
+    outputs:
+      releases_created: ${{ steps.release.outputs.releases_created }}
+      pr: ${{ steps.release.outputs.pr }}
+      prs: ${{ steps.release.outputs.prs }}
     steps:
       - name: Run Release Please Action
+        id: release
         uses: googleapis/release-please-action@v4
         with:
           target-branch: ${{ github.ref_name }}
-          config-file: ${{ github.ref == 'refs/heads/staging' && 'release-please-staging-config.json' || 'release-please-config.json' }}
+          config-file: "release-please-config.json"
           manifest-file: ".release-please-manifest.json"
+
+  release-checklist:
+    name: Release Checklist
+    runs-on: ubuntu-latest
+    needs: release-please
+    if: ${{ needs.release-please.outputs.releases_created }}
+    steps:
+      - name: Create or Update Release Checklist
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prsOutput = '${{ needs.release-please.outputs.prs }}';
+
+            if (!prsOutput) {
+              console.log('No PR data available');
+              return;
+            }
+
+            let prs;
+            try {
+              prs = JSON.parse(prsOutput);
+            } catch (error) {
+              console.error('Failed to parse PR data:', error);
+              return;
+            }
+
+            // Extract version from PR title which is typically in format: "chore(main): release package-name 1.2.3"
+            for (const pr of Object.values(prs)) {
+              const titleMatch = pr.title.match(/release ([^\\s]+) (\d+\.\d+\.\d+)/);
+              if (!titleMatch) {
+                console.log(`Skipping PR: Could not parse package and version from title: ${pr.title}`);
+                continue;
+              }
+
+              const [, pkg, version] = titleMatch;
+              const body = `## Release Checklist for ${pkg} v${version}
+              
+              ### Pre-release checks
+              - [ ] Code has been reviewed and approved
+              - [ ] All tests are passing
+              - [ ] Documentation has been updated
+              - [ ] Change log is accurate
+              
+              ### Release tasks
+              - [ ] Version bump is correct
+              - [ ] Dependencies are up to date
+              - [ ] Release notes are complete
+              
+              ### Post-release verification
+              - [ ] Package successfully published
+              - [ ] Release tag created
+              - [ ] Production deployment successful
+              - [ ] Smoke tests passed
+              
+              Related PR: #${pr.number}`;
+              
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `Release Checklist: ${pkg} v${version}`,
+                body: body,
+                labels: ['release-checklist']
+              });
+            }
