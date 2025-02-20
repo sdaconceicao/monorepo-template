@@ -62,18 +62,18 @@ jobs:
 
               ### Development -> Staging
               - [ ] Confirm all expected changes are in changelog, and merge release-please PR #${pr.number}
-              - [ ] Merge `development` to `staging,` resolving any merge conflicts
-              - [ ] Ensure that deployments to `staging` succeed and pass smoke tests
+              - [ ] Merge \`development\` to \`staging\`, resolving any merge conflicts
+              - [ ] Ensure that deployments to \`staging\` succeed and pass smoke tests
               
               ### Staging -> Production
-              - [ ] Confirm that all changes in `main` are in `staging` (cherry pick missing commits if needed)
-              - [ ] Merge `staging` to `main,` resolving any merge conflicts
-              - [ ] Ensure that deployments to `main` succeed and pass smoke tests
+              - [ ] Confirm that all changes in \`main\` are in \`staging\` (cherry pick missing commits if needed)
+              - [ ] Merge \`staging\` to \`main,\` resolving any merge conflicts
+              - [ ] Ensure that deployments to \`main\` succeed and pass smoke tests
               
               ### Post-release verification
               - [ ] Mark release as Github as latest 
               - [ ] Mark release in JIRA as Released 
-              - [ ] Update the original Bugs Forum thread with the date and time of release to production
+              - [ ] Update the original Bugs Forum thread with the date and time of release to production`;
 
               const issueTitle = `Release Checklist: ${pkg} v${version}`;
 
