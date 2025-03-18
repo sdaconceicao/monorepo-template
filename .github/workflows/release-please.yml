@@ -40,17 +40,8 @@ jobs:
               return;
             }
 
-            let prs;
-            try {
-              // Use JSON.parse with a reviver function to handle control characters
-              prs = JSON.parse(prsOutput.replace(/[\n\r\t]/g, ' '));
-            } catch (error) {
-              console.error('Failed to parse PR data:', error);
-              return;
-            }
-
             // Extract version from PR title which is typically in format: "chore(main): deploy package-name 1.2.3"
-            for (const pr of Object.values(prs)) {
+            for (const pr of Object.values(prsOutput)) {
               const titleMatch = pr.title.match(/deploy ([^\\s]+) ([\d.-]+(?:rc(?:\.\d+)?)?)/);
               if (!titleMatch) {
                 console.log(`Skipping PR: Could not parse package and version from title: ${pr.title}`);
@@ -71,8 +62,8 @@ jobs:
               - [ ] Ensure that deployments to \`main\` succeed and pass smoke tests
               
               ### Post-release verification
-              - [ ] Mark release as Github as latest 
-              - [ ] Mark release in JIRA as Released 
+              - [ ] Mark release in \`Github\` as Latest 
+              - [ ] Mark release in \`JIRA\` as Released 
               - [ ] Update the original Bugs Forum thread with the date and time of release to production`;
 
               const issueTitle = `Release Checklist: ${pkg} v${version}`;
