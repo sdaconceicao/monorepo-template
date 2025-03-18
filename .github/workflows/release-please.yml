@@ -42,6 +42,7 @@ jobs:
 
             // Extract version from PR title which is typically in format: "chore(main): deploy package-name 1.2.3"
             for (const pr of Object.values(prsOutput)) {
+              console.log('PR OBJECT IS', pr)
               const titleMatch = pr.title.match(/deploy ([^\\s]+) ([\d.-]+(?:rc(?:\.\d+)?)?)/);
               if (!titleMatch) {
                 console.log(`Skipping PR: Could not parse package and version from title: ${pr.title}`);
