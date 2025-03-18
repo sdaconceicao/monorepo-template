@@ -1,1 +1,1 @@
-console.log("App A")
+console.log("App A update")
