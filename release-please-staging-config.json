@@ -1,6 +1,7 @@
 {
   "release-type": "node",
   "versioning": "default",
+  "prerelease": false,
   "packages": {
     "apps/appA": {},
     "libs/libraryA": {},
