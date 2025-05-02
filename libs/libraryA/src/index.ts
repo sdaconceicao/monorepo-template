@@ -1,1 +1,1 @@
-console.log("Library A publishu testy Now 1.2.0")
+console.log("Library A publishu testy Now 1.2.0 No Prerelease")
