@@ -1,8 +1,7 @@
 {
   "release-type": "node",
-  "versioning": "prerelease",
-  "prerelease": true,
-  "prerelease-type": "rc",
+  "versioning": "default",
+  "prerelease": false,
   "packages": {
     "apps/appA": {
       "pull-request-title-pattern": "chore${scope}: deploy ${component} ${version}"
