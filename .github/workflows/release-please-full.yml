@@ -1,0 +1,32 @@
+name: Release Please Manual Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      package-name:
+        type: choice
+        description: Which environment to deploy to
+        options:
+          - libraryA
+          - libraryB
+          - appA
+        required: true
+      version:
+        type: string
+        description: Version to release
+        required: true
+
+jobs:
+  release-please-version:
+    name: Release Please
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Release Please Action
+        id: release
+        uses: google-github-actions/release-please-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node # or your package type
+          package-name: ${{ inputs.package-name }}
+          path: libs/${{ inputs.package-name }}
+          release-as: ${{ inputs.version }}

@@ -1,1 +1,1 @@
-console.log("Library A publishu testy")
+console.log("Library A Cut Version 1.1.0")
