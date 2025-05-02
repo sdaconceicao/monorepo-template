@@ -2,9 +2,11 @@
   "release-type": "node",
   "versioning": "default",
   "prerelease": false,
+  "bump-minor-pre-major": false,
+  "bump-patch-for-minor-pre-major": false,
   "packages": {
     "apps/appA": {},
-    "libs/libraryA": { "versioning": "default", "prerelease": false },
+    "libs/libraryA": {},
     "libs/libraryB": {}
   },
   "separate-pull-requests": true,
