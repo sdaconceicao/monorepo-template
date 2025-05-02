@@ -3,8 +3,8 @@
   "versioning": "default",
   "packages": {
     "apps/appA": { "component": "appA" },
-    "libs/libraryA": {},
-    "libs/libraryB": {}
+    "libs/libraryA": { "component": "libraryA" },
+    "libs/libraryB": { "component": "libraryB" }
   },
   "separate-pull-requests": true,
   "label": "autorelease: pending",
