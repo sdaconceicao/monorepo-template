@@ -4,7 +4,7 @@
   "prerelease": false,
   "packages": {
     "apps/appA": {},
-    "libs/libraryA": {},
+    "libs/libraryA": { "versioning": "default", "prerelease": false },
     "libs/libraryB": {}
   },
   "separate-pull-requests": true,
