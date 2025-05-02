@@ -1,4 +1,4 @@
-name: Release Please
+name: Release Please Manual Release
 
 on:
   workflow_dispatch:
