@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.2](https://github.com/sdaconceicao/monorepo-template/compare/app-a-v0.0.2-rc...app-a-v0.0.2) (2025-05-02)
+
+
+### Chores
+
+* App a ([e052a63](https://github.com/sdaconceicao/monorepo-template/commit/e052a63056276df2b0fec27eb64c022c0173a667))
+* App A update ([561c1c8](https://github.com/sdaconceicao/monorepo-template/commit/561c1c81540973458ff3489d2ee308c06203727d))
+
 ## [0.0.2-rc](https://github.com/sdaconceicao/monorepo-template/compare/app-a-v0.0.1...app-a-v0.0.2-rc) (2025-02-20)
 
 
