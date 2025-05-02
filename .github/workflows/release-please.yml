@@ -20,7 +20,7 @@ jobs:
         uses: googleapis/release-please-action@v4
         with:
           target-branch: ${{ github.ref_name }}
-          config-file: ${{ github.ref == 'refs/heads/development' && 'release-please-config.json' || 'release-please-staging-config.json' }}
+          config-file: "release-please-config.json"
           manifest-file: ".release-please-manifest.json"
 
   release-checklist:
