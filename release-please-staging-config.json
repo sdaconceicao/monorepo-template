@@ -1,5 +1,6 @@
 {
   "release-type": "node",
+  "versioning": "default",
   "packages": {
     "apps/appA": {},
     "libs/libraryA": {},
