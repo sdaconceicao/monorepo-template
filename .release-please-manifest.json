@@ -1,5 +1,5 @@
 {
   "apps/appA": "0.0.2-rc",
   "libs/libraryA": "1.1.0-rc",
-  "libs/libraryB": "0.0.1"
+  "libs/libraryB": "0.0.2"
 }
